@@ -8,8 +8,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var notes = <String>["Primeiro Item"];
-  /* final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: TextStyle(fontSize: 20, color: Colors.purple)); */
+  /* final ButtonStyle style =
+      ElevatedButton.styleFrom(minimumSize: Size(200, 100)); */
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +42,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
-              child: FlatButton(
-                color: Colors.purple,
-                textColor: Colors.white,
+              padding: EdgeInsets.fromLTRB(0, 90, 0, 0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(300, 45), elevation: 5),
                 child: Text('TO ADD'),
                 onPressed: () async {
                   var description =
