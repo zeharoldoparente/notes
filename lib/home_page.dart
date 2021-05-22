@@ -8,6 +8,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var notes = <String>["Primeiro Item"];
+  /* final ButtonStyle style = ElevatedButton.styleFrom(
+      textStyle: TextStyle(fontSize: 20, color: Colors.purple)); */
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +41,24 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
+              child: FlatButton(
+                color: Colors.purple,
+                textColor: Colors.white,
+                child: Text('TO ADD'),
+                onPressed: () async {
+                  var description =
+                      await Navigator.pushNamed(context, "/create-note");
+                  if (description != null) {
+                    notes.add(description as String);
+                    setState(() {});
+                  }
+                },
+              ),
+            )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          var description = await Navigator.pushNamed(context, "/create-note");
-          if (description != null) {
-            notes.add(description as String);
-            setState(() {});
-          }
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
